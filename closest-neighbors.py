@@ -1,3 +1,25 @@
+# makes a testing environment for merge()
+def merge_test(x_sorted_points, lo, mid, hi, l1, l2, r1, r2):
+
+    y_sorted_points = sorted(x_sorted_points, key=lambda p: p[1])
+
+    # n1, n2 are the closest neighbors among x_sorted_points[lo:hi]
+    class PointRange:
+        def __init__(self, lo, hi, n1, n2):
+            self.lo = lo
+            self.hi = hi
+            self.n1 = n1
+            self.n2 = n2
+
+    left_range = PointRange(lo, mid, l1, l2)
+    right_range = PointRange(mid, hi, r1, r2)
+
+    # do the merging here
+    merged_range
+
+    return [x_sorted_points[merged_range.n1], x_sorted_points[merged_range.n2]]
+
+
 # input is a list of ordered pairs, output is a list of
 # the two ordered pairs that are the closest neighbors
 def closest_neighbors(points):
