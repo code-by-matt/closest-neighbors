@@ -27,7 +27,6 @@ def closest_neighbors(points):
             right_range = recur(mid, hi)
             return merge(left_range, right_range)
 
-    # each input a four-element list of the form described below
     def merge(left_range, right_range):
 
         # more thought is needed here
