@@ -1,5 +1,5 @@
-# input is a list of ordered pairs,
-# output is the same list and a second list of the closest neighbors
+# input is a list of ordered pairs, output is a list of
+# the two ordered pairs that are the closest neighbors
 def closest_neighbors(points):
 
     x_sorted_points = sorted(points, key=lambda p: p[0])
@@ -33,4 +33,5 @@ def closest_neighbors(points):
 
         return merged_range
 
-    return recur(0, len(points) - 1)
+    full_range = recur(0, len(points) - 1)
+    return [x_sorted_points[full_range.n1], x_sorted_points[full_range.n2]]
