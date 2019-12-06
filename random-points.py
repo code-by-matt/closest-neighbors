@@ -3,8 +3,8 @@ import numpy as np
 import sys
 
 num_points = int(sys.argv[1])
-x = list(np.random.random(num_points))
-y = list(np.random.random(num_points))
+x = list(np.around(np.random.random(num_points), decimals=3))
+y = list(np.around(np.random.random(num_points), decimals=3))
 points = list(zip(x, y))
 
 ax = plt.gca().set_aspect('equal', 'datalim')
