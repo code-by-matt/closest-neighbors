@@ -52,7 +52,7 @@ def closest_neighbors(points_list):
         # recur on half-ranges
         else:
             [left_points, right_points] = split(sorted_points)
-            return merge(left_points, right_points)
+            return merge(recur(left_points), recur(right_points))
 
     x_sort = sorted(points_list, key=lambda p: p[0])
     y_sort = sorted(points_list, key=lambda p: p[1])
