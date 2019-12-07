@@ -16,7 +16,7 @@ def split(sorted_points):
     # the vertical line x = thresh splits the points in half
     # (assuming no two points have the same x-coordinate)
     mid = sorted_points.size // 2
-    thresh = (sorted_points.x_sort[mid][0] + sorted_points.x_sort[mid+1][0]) / 2
+    thresh = (sorted_points.x_sort[mid-1][0] + sorted_points.x_sort[mid][0]) / 2
     # create the horizontal half orderings
     lx_sort = []
     rx_sort = []
