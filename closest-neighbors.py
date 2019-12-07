@@ -1,3 +1,11 @@
+class SortedPoints:
+    # THERE ARE MANY CONDITIONS ON THE INPUT THAT WE MUST CHECK
+    def __init__(self, x_sort, y_sort, n1, n2):
+        self.x_sort = x_sort
+        self.y_sort = y_sort
+        self.n1 = n1
+        self.n2 = n2
+
 # input is a list of ordered pairs, output is a list of
 # the two ordered pairs that are the closest neighbors
 def closest_neighbors(points):
