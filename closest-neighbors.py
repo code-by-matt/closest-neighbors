@@ -1,6 +1,8 @@
 class SortedPoints:
     # THERE ARE MANY CONDITIONS ON THE INPUT THAT WE MUST CHECK
     def __init__(self, x_sort, y_sort, n1, n2):
+        assert len(x_sort) == len(y_sort)
+        self.size = len(x_sort)
         self.x_sort = x_sort
         self.y_sort = y_sort
         self.n1 = n1
