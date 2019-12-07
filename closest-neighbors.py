@@ -1,3 +1,5 @@
+# an object that stores a set of 2D points in horizontal order and in vertical order,
+# and also the two closest neighbors in the set
 class SortedPoints:
     # THERE ARE MANY CONDITIONS ON THE INPUT THAT WE MUST CHECK
     def __init__(self, x_sort, y_sort, n1, n2):
