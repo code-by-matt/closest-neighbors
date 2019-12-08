@@ -11,8 +11,8 @@ ax = plt.gca().set_aspect('equal', 'datalim')
 plt.plot(x, y, 'k.')
 plt.show()
 
-save = input('Type J to save points to test-sets.txt: ')
+save = input('Type J to save points to ' + sys.argv[2] + ': ')
 if save == 'J':
-    txt_file = open('test-sets.txt', 'a')
+    txt_file = open(sys.argv[2], 'a')
     txt_file.write(str(points))
     txt_file.close()
