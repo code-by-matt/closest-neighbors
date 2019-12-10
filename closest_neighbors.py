@@ -36,7 +36,7 @@ def split(sorted_points):
     for p in sorted_points.y_sort:
         if p[0] < thresh: ly_sort.append(p)
         else: ry_sort.append(p)
-    # return a list of two SotredPoints objects
+    # return a list of two SortedPoints objects
     return [SortedPoints(lx_sort, ly_sort, None, None), SortedPoints(rx_sort, ry_sort, None, None)]
 
 
