@@ -45,7 +45,7 @@ def merge(left_points, right_points):
 
     left_squared_dist = squared_dist(left_points.n1, left_points.n2)
     right_squared_dist = squared_dist(right_points.n1, right_points.n2)
-    squared_strip_width = min(left_squared_dist, right_squared_dist)
+    squared_strip_radius = min(left_squared_dist, right_squared_dist)
     # some thought is needed here
     return merged_points
 
