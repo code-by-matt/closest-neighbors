@@ -1,3 +1,6 @@
+import math
+
+
 # an object that stores a set of 2D points in horizontal order and in vertical order,
 # and also the two closest neighbors in the set
 class SortedPoints:
@@ -9,6 +12,10 @@ class SortedPoints:
         self.y_sort = y_sort
         self.n1 = n1
         self.n2 = n2
+
+
+def squared_dist(p1, p2):
+    return (p1[0]-p2[0])*(p1[0]-p2[0]) + (p1[1]-p2[1])*(p1[1]-p2[1])
 
 
 # input is a SortedPoints object, output is a list of two SortedPoints objects
