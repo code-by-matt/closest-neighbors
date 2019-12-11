@@ -59,6 +59,24 @@ def merge(left_points, right_points):
         if (p[0]-strip_center) * (p[0]-strip_center) < squared_strip_radius:
             right_strip.append[p]
 
+    # merge left_strip and right_strip
+    strip = []
+    lindex = 0
+    rindex = 0
+    while len(strip) < len(left_strip) + len(right_strip):
+        if lindex == len(left_strip):
+            strip.append(right_strip[rindex])
+            rindex += 1
+        elif rindex == len(right_strip):
+            strip.append(left_strip[lindex])
+            lindex += 1
+        elif left_strip[lindex][1] < right_strip[rindex][1]:
+            strip.append(left_strip[lindex])
+            lindex += 1
+        else:
+            strip.append(right_strip[rindex])
+            rindex += 1
+
     return merged_points
 
 
