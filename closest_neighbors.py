@@ -53,11 +53,11 @@ def merge(left_points, right_points):
     left_strip = []
     for p in left_points.y_sort:
         if (strip_center-p[0]) * (strip_center-p[0]) < squared_strip_radius:
-            left_strip.append[p]
+            left_strip.append(p)
     right_strip = []
     for p in right_points.y_sort:
         if (p[0]-strip_center) * (p[0]-strip_center) < squared_strip_radius:
-            right_strip.append[p]
+            right_strip.append(p)
 
     # merge left_strip and right_strip
     strip = []
