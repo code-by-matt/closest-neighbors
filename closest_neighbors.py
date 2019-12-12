@@ -77,6 +77,17 @@ def merge(left_points, right_points):
             strip.append(right_strip[rindex])
             rindex += 1
 
+    # check at most O(n) distances
+    min_pair = None
+    min_squared_dist = squared_strip_radius
+    for i in range (1, len(strip)):
+        j = i - 1
+        vert = strip[i][1] - strip[j][1]
+        while j >= 0 and vert * vert < squared_strip_radius:
+            if squared_dist(strip[i], strip[j]) < squared_strip_radius:
+                min_pair = [strip[i], strip[j]]
+                min_squared_dist = squared_dist(strip[i], strip[j])
+
     return merged_points
 
 
