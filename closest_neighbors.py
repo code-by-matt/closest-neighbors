@@ -42,6 +42,7 @@ def split(sorted_points):
 # input is two SortedPoints objects, output is a single SortedPoints object
 def merge(left_points, right_points):
 
+    # what do we do if left_points.cn == None right_points.cn == None???
     # find the dimensions of the strip
     left_squared_dist = squared_dist(left_points.cn[0], left_points.cn[1])
     right_squared_dist = squared_dist(right_points.cn[0], right_points.cn[1])
