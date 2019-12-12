@@ -5,13 +5,12 @@ import math
 # and also the two closest neighbors in the set
 class SortedPoints:
     # THERE ARE MANY CONDITIONS ON THE INPUT THAT WE MUST CHECK
-    def __init__(self, x_sort, y_sort, n1, n2):
+    def __init__(self, x_sort, y_sort, cn):
         assert len(x_sort) == len(y_sort)
         self.size = len(x_sort)
         self.x_sort = x_sort
         self.y_sort = y_sort
-        self.n1 = n1
-        self.n2 = n2
+        self.cn = cn
 
 
 def squared_dist(p1, p2):
@@ -37,15 +36,15 @@ def split(sorted_points):
         if p[0] < thresh: ly_sort.append(p)
         else: ry_sort.append(p)
     # return a list of two SortedPoints objects
-    return [SortedPoints(lx_sort, ly_sort, None, None), SortedPoints(rx_sort, ry_sort, None, None)]
+    return [SortedPoints(lx_sort, ly_sort, None), SortedPoints(rx_sort, ry_sort, None)]
 
 
 # input is two SortedPoints objects, output is a single SortedPoints object
 def merge(left_points, right_points):
 
     # find the dimensions of the strip
-    left_squared_dist = squared_dist(left_points.n1, left_points.n2)
-    right_squared_dist = squared_dist(right_points.n1, right_points.n2)
+    left_squared_dist = squared_dist(left_points.cn[0], left_points.cn[1])
+    right_squared_dist = squared_dist(right_points.cn[0], right_points.cn[1])
     squared_strip_radius = min(left_squared_dist, right_squared_dist)
     strip_center = (left_points.x_sort[-1][0] + right_points.x_sort[0][0]) / 2
 
@@ -108,7 +107,7 @@ def closest_neighbors(points_list):
 
     x_sort = sorted(points_list, key=lambda p: p[0])
     y_sort = sorted(points_list, key=lambda p: p[1])
-    sorted_points = SortedPoints(x_sort, y_sort, None, None)
+    sorted_points = SortedPoints(x_sort, y_sort, None)
     sorted_points = recur(sorted_points)
 
-    return [sorted_points.n1, sorted_points.n2]
+    return sorted_points.cn
