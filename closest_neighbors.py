@@ -42,12 +42,20 @@ def split(sorted_points):
 # input is two SortedPoints objects, output is a single SortedPoints object
 def merge(left_points, right_points):
 
-    # what do we do if left_points.cn == None right_points.cn == None???
-    # find the dimensions of the strip
-    left_squared_dist = squared_dist(left_points.cn[0], left_points.cn[1])
-    right_squared_dist = squared_dist(right_points.cn[0], right_points.cn[1])
-    squared_strip_radius = min(left_squared_dist, right_squared_dist)
+    # find the location of the strip
     strip_center = (left_points.x_sort[-1][0] + right_points.x_sort[0][0]) / 2
+
+    # find the width of the strip
+    if left_points.cn and right_points.cn:
+        left_squared_dist = squared_dist(left_points.cn[0], left_points.cn[1])
+        right_squared_dist = squared_dist(right_points.cn[0], right_points.cn[1])
+        squared_strip_radius = min(left_squared_dist, right_squared_dist)
+    elif left_points.cn and not right_points.cn:
+        squared_strip_radius = squared_dist(left_points.cn[0], left_points.cn[1])
+    elif not left_points.cn and right_points.cn:
+        squared_strip_radius = squared_dist(right_points.cn[0], right_points.cn[1])
+    else:
+        squared_strip_radius = math.inf
 
     # make y-sorted lists of left and right points in the strip
     left_strip = []
